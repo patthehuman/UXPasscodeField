@@ -109,7 +109,7 @@ public class UXPasscodeField: UIControl, UIKeyInput {
         for index in 0..<numberLabels.count {
             let label = numberLabels[index]
             let frame = frameOfNumberLabel(ofDigitIndex: index)
-            label.font = UIFont.systemFont(ofSize: 17)
+            label.font = UIFont.systemFont(ofSize: 20)
             label.frame = frame
         }
         
