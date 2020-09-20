@@ -94,7 +94,7 @@ extension UXPasscodeViewController {
     
     @IBAction fileprivate func passcodeFieldValueDidChange() {
         
-        if passcodeField.passcode.characters.count == passcodeField.numberOfDigits {
+        if passcodeField.passcode.count == passcodeField.numberOfDigits {
             doneAction?(passcodeField.passcode)
         }
         

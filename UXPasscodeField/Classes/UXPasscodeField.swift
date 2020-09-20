@@ -17,7 +17,7 @@ public class UXPasscodeField: UIControl, UIKeyInput {
             
             if oldValue != numberOfDigits {
                 
-                if passcode.characters.count > numberOfDigits {
+                if passcode.count > numberOfDigits {
                     let endOfString = passcode.index(passcode.startIndex, offsetBy: numberOfDigits)
                     passcode = passcode.substring(to: endOfString)
                 }
@@ -34,7 +34,7 @@ public class UXPasscodeField: UIControl, UIKeyInput {
             
             if oldValue != passcode {
                 
-                guard passcode.characters.count <= numberOfDigits else {
+                guard passcode.count <= numberOfDigits else {
                     return
                 }
                 
@@ -160,7 +160,7 @@ public class UXPasscodeField: UIControl, UIKeyInput {
             
             let label = numberLabels[i]
             
-            if i < passcode.characters.count {
+            if i < passcode.count {
 
                 let start = passcode.index(passcode.startIndex, offsetBy: i)
                 let end = passcode.index(start, offsetBy: 1)
@@ -183,7 +183,7 @@ public class UXPasscodeField: UIControl, UIKeyInput {
             return false
         }
         
-        return regex.numberOfMatches(in: string, options: [], range: NSMakeRange(0, string.characters.count)) == 1
+        return regex.numberOfMatches(in: string, options: [], range: NSMakeRange(0, string.count)) == 1
     }
     
     // MARK: - Handle the touch up event
@@ -198,7 +198,7 @@ public class UXPasscodeField: UIControl, UIKeyInput {
     
     public func insertText(_ text: String) {
         
-        guard passcode.characters.count + text.characters.count <= numberOfDigits else {
+        guard passcode.count + text.count <= numberOfDigits else {
             return
         }
         
@@ -210,7 +210,7 @@ public class UXPasscodeField: UIControl, UIKeyInput {
     }
     
     public func deleteBackward() {
-        guard passcode.characters.count > 0 else {
+        guard passcode.count > 0 else {
             return
         }
         passcode = passcode.substring(to: passcode.index(before: passcode.endIndex))
